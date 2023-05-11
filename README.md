@@ -2,6 +2,10 @@
 
 This template shows off how you can set up a UI to do ChatGPT style question and answer on a knowledge base, using a [Relevance AI](https://www.relevanceai.com) chain.
 
+I've written an [extensive guide](https://dash.readme.com/project/relevance/v4.0.0/docs/building-chatgpt-for-your-knowledge-base-with-relevance-ai-redis-openai-and-nuxt) breaking down this project in detail.
+
+[View video of this repo in action!](https://www.loom.com/share/7191ab7c84564cb184ba6682e261f204)
+
 ## Get started
 
 ```
