@@ -63,6 +63,14 @@ export const useChain = () => {
             });
 
             const responseAnswer = response.output[CHAIN_ANSWER_OUTPUT_KEY];
+
+            const MAX_HISTORY_LENGTH = 20;
+
+            // -1 because we are about to add 2 new items to history
+            if (chatHistory.value.length > MAX_HISTORY_LENGTH - 1) {
+                // remove first 2 items
+                chatHistory.value.splice(0, 2);
+            }
              
             chatHistory.value.push({
                 role: 'user',
