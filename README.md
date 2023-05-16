@@ -4,6 +4,8 @@ This template shows off how you can set up a UI to do ChatGPT style question and
 
 [**Read the accompanying guide!**](https://documentation.relevanceai.com/guides/pdf-qa)
 
+To create the demo dataset for this frontend, use this [Google Colab](https://colab.research.google.com/drive/1XYaRamHmHop3GV4MGTMaDZjRZuWfMy9O?usp=sharing).
+
 [View video of this repo in action!](https://www.loom.com/share/7191ab7c84564cb184ba6682e261f204)
 
 ## Get started
