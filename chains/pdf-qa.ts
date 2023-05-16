@@ -46,13 +46,13 @@ const chain = defineChain({
           const { answer: modifiedQuestion } = step('prompt_completion', {
             prompt: `The human is having a conversation with an assistant, where the assistant will query a knowledgebase to get the context needed to provide an answer. You must use the chat history and the follow-up input to rephrase the question such that it can be used on its own. This means the standalone question must be include context from the chat history necessary to provide an answer.
 
-            For example, if the chat history contains information about the temperature and the user asks to convert it into another unit - provide that in the standalone question. Or if the user asks a question about a subject from the history, reference that subject with detail.
+For example, if the chat history contains information about the temperature and the user asks to convert it into another unit - provide that in the standalone question. Or if the user asks a question about a subject from the history, reference that subject with detail.
 
-            Chat History: ${reducedHistory}
+Chat History: ${reducedHistory}
 
-            Follow Up Input: ${question}.
+Follow Up Input: ${question}.
 
-            Standalone question:`,
+Standalone question:`,
           });
 
           return { modifiedQuestion };
