@@ -1,22 +1,17 @@
-import { CHAIN_ANSWER_OUTPUT_KEY, CHAIN_HISTORY_PARAM_KEY, CHAIN_PROJECT, CHAIN_QUESTION_PARAM_KEY, CHAIN_URL } from "~/relevance-config";
+import { PROJECT_ID, REGION_ID } from "~/relevance-config";
+import { Client } from '@relevanceai/chain';
+import type PdfQa from '~/chains/pdf-qa';
+
 
 export const useChain = () => {
     const error = ref<string | null>(null);
     const isLoadingMessage = ref<boolean>(false);
 
-    interface ChainApiPayload {
-        project: string;
-        params: Record<string, any>;
-        version?: string;
-    }
+    const client = new Client({
+        region: REGION_ID,
+        project: PROJECT_ID,
+    });
 
-    interface ChainApiResponse {
-        status: 'complete' | 'failed';
-        errors: Record<'body', string>[];
-        output: Record<string, any>;
-        executionTime: number;
-    }
-    
     /** This is how our chain expects history, you are able to edit this in the chain */
     interface RelevanceHistoryObject {
         role: 'user' | 'ai';
@@ -51,18 +46,13 @@ export const useChain = () => {
                 message: clonedUserInput
             });
 
-            const payload: ChainApiPayload = {
-                // do not pass empty history array
-                params: { [CHAIN_QUESTION_PARAM_KEY]: clonedUserInput, [CHAIN_HISTORY_PARAM_KEY]: chatHistory.value?.length ? chatHistory.value : undefined },
-                project: CHAIN_PROJECT,
-            };
-
-            const response: ChainApiResponse = await $fetch(CHAIN_URL, {
-                method: 'POST',
-                body: payload,
+            // we can import the type for the chain to get type safety (optional)
+            const response = await client.runChain<typeof PdfQa>('pdf-qa', {
+                question: clonedUserInput,
+                history: chatHistory.value,
             });
 
-            const responseAnswer = response.output[CHAIN_ANSWER_OUTPUT_KEY];
+            const responseAnswer = response.answer;
 
             const MAX_HISTORY_LENGTH = 20;
 

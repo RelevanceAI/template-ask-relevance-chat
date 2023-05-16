@@ -7,10 +7,7 @@
                 <header
                     class="flex items-center px-6 h-14 w-full bg-white border-b border-gray-200 shadow-sm fixed top-0 z-10"
                 >
-                    <h1 class="font-semibold text-lg">
-                        Conversational knowledge base Q&A - Relevance AI demo
-                        (Redis, OpenAI)
-                    </h1>
+                    <h1 class="font-semibold text-lg">Knowledge base Q&A</h1>
                 </header>
 
                 <div
