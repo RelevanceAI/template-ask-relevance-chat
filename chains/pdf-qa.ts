@@ -1,6 +1,6 @@
 import { defineChain } from '@relevanceai/chain';
 
-// the dataset created in this Google Colab: https://colab.research.google.com/drive/17CGlVUzcE3kz0Oqy4qmi33CJPuTlLaav?usp=sharing
+// the dataset created in this Google Colab: https://colab.research.google.com/drive/1XYaRamHmHop3GV4MGTMaDZjRZuWfMy9O?usp=sharing
 const DATASET_ID = 'knowledge_base';
 const DATASET_EMBEDDING_FIELD = 'embedding_vector_';
 
